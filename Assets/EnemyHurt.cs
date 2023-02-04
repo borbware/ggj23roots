@@ -5,35 +5,43 @@ public class EnemyHurt : MonoBehaviour
 {
     Vector3 dir;
     public float distance = 1000f;
-    float time = 1.0f;
+    CharacterController1 controller;
+    float pushforce = 0;
 
     bool moving = false;
     void OnTriggerEnter(Collider other)
     {
-        
+
+
         if (other.gameObject.tag == "Enemy" && moving == false)
         {
-            dir = transform.root.position - other.transform.root.position;
+            dir = transform.position - other.transform.position;
             moving = true;
             StartCoroutine(BumpDelay());
             
-            Debug.Log("asdf");
             if (GameManager.instance != null)
                 GameManager.instance.AddHP(-1);
+            GetComponent<AudioSource>().Play();
+            pushforce = 20;
         }
     }
     void Update()
     {
-        if(moving)
+        controller = GetComponent<CharacterController1>();
+        if (moving)
         {
-            Debug.Log(dir * Time.deltaTime * (distance / time));
-            transform.Translate(dir * Time.deltaTime * (distance / time));
+            Debug.Log(dir);
+            if (pushforce > 0)
+            {
+                controller.Move(dir, pushforce);
+                pushforce -= Time.deltaTime * 10;
+            }
         }
     }
  
     IEnumerator BumpDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.7f);
         moving = false;
     }
 }
