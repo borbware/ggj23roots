@@ -114,34 +114,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fbf619665cbbf87409530f82d4d6decc, type: 3}
   m_PrefabInstance: {fileID: 5430713466086168552}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3909905613007437652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160189274543499961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c1ef2d77d79da4eacf1d01372afae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollX: 0.5
-  ScrollY: 0.5
---- !u!64 &7138586443484089654
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160189274543499961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5657891690349177999, guid: fbf619665cbbf87409530f82d4d6decc, type: 3}
 --- !u!54 &4701746690376007382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,6 +130,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &7138586443484089654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160189274543499961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5657891690349177999, guid: fbf619665cbbf87409530f82d4d6decc, type: 3}
+--- !u!114 &3909905613007437652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160189274543499961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c1ef2d77d79da4eacf1d01372afae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollX: 0.01
+  ScrollY: 0.01
+--- !u!114 &4784994767689201265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160189274543499961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5436076a578a2b245bb6e21eb01c882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5537031030181097475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fbf619665cbbf87409530f82d4d6decc, type: 3}

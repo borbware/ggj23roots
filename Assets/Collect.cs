@@ -15,12 +15,12 @@ public class Collect : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Player")
         {
-            GameManager.instance.AddCollectible(collectibleType);
+            if (GameManager.instance != null)
+                GameManager.instance.AddCollectible(collectibleType);
                  
             if (audioSource.enabled)
             {
                 audioSource.Play();
-                Debug.Log("asdf");
             }
             Destroy(gameObject);
         }

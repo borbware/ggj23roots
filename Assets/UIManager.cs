@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
         GameObject hpObj = transform.Find("HP").gameObject;
         hpText = hpObj.GetComponent<TextMeshProUGUI>();
 
-        GameManager.instance.uiManager = this;
+        if (GameManager.instance != null)
+            GameManager.instance.uiManager = this;
     }
     public void SetRareCollectibles(int newScore)
     {
