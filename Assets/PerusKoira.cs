@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public enum State
 {
     Grounded,
-    InAir
+    InAir,
+    Peeing
 }
 
 public class PerusKoira : MonoBehaviour
@@ -15,6 +16,7 @@ public class PerusKoira : MonoBehaviour
     State state;
     CharacterController1 controller;
     Animator anim;
+    AudioSource haukku;
 
     public float KoiranNopeus = 4;
     public float jumpPower = 10;
@@ -24,11 +26,16 @@ public class PerusKoira : MonoBehaviour
     float gravitymultiplier = 4;
 
     float jumpBuffer = 0.0f;
+    float peeFrames = 0f;
+    int AirJumpCounter = 0;
+    int AirPissCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController1>();
         anim = GetComponentInChildren<Animator>();
+        haukku = GetComponent<AudioSource>();
+
         state = State.Grounded;
     }
 
@@ -56,6 +63,11 @@ public class PerusKoira : MonoBehaviour
                         Jump();
                     }
 
+                    if (controller.isGrounded()) // reset double jump
+                    {
+                        AirJumpCounter = 1;
+                        AirPissCounter = 1;
+                    }
                 }
                 break;
             case State.InAir:
@@ -83,7 +95,28 @@ public class PerusKoira : MonoBehaviour
                         gravity = 0;
                         jump = 0;
                     }
+                    if (jumpBuffer > 0 && AirJumpCounter > 0) // double jump
+                    {
+                        Jump();
+                        AirJumpCounter--;
+                    }
 
+                }
+                break;
+            case State.Peeing:
+                {
+                    if (peeFrames <= 0.3f)
+                    {
+
+                        anim.CrossFadeInFixedTime("DogDefault", 0.3f, -1, 0.0f, 0.0f);
+                    }
+                    if (peeFrames <= 0)
+                    {
+                        state = State.Grounded;
+                    }
+                    peeFrames -= Time.deltaTime;
+
+                    AirPissCounter--;
                 }
                 break;
         }
@@ -91,7 +124,7 @@ public class PerusKoira : MonoBehaviour
         if (jumpBuffer > 0 )
             jumpBuffer -= Time.deltaTime;
     }
-    void OnJump() // tämä on inputti
+    void OnJump() // tämä on hyppyinputti
     {
         jumpBuffer = 0.1f;
     }
@@ -105,5 +138,26 @@ public class PerusKoira : MonoBehaviour
         jump = jumpPower;
         state = State.InAir;
         anim.CrossFadeInFixedTime("jump start", 0.1f, -1, 0.0f, 0.0f);
+    }
+    void OnBark() // tämä on haukkuinputti
+    {
+        Bark();
+    }
+    void Bark() // tämä on haukku
+    {
+        haukku.Play();
+    }
+    void OnPiss()
+    {
+        Piss();
+    }
+    void Piss()
+    {
+        if (AirPissCounter > 0)
+        {
+            peeFrames = 1;
+            anim.Play("pee");
+            state = State.Peeing;
+        }
     }
 }

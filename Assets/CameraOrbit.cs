@@ -12,6 +12,8 @@ public class CameraOrbit : MonoBehaviour
     public float mousespeed = 0.1f;
     public float gamepadspeed = 40f;
 
+    public float cameraDistance = 5;
+
     float x;
     float y;
 
@@ -42,7 +44,7 @@ public class CameraOrbit : MonoBehaviour
         }
 
         Quaternion rotation = Quaternion.Euler(y_,x_,0);
-        camera.position = rotation * new Vector3(0, 1.5f, -5) + transform.position;
+        camera.position = rotation * new Vector3(0, 1.5f, -cameraDistance) + transform.position;
         camera.rotation = rotation;
         CheckForWallCollisions();
     }
