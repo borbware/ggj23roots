@@ -7,7 +7,7 @@ public class CharacterController1 : MonoBehaviour
 {
 
     Transform camera;
-    Vector3 MoveDirection;
+    public Vector3 MoveDirection;
     public float height = 0.6f;
     public Vector3 currentMoveDirection;
     public RaycastHit ground; // for isgrounded

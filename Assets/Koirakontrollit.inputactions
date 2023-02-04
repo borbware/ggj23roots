@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "A",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "5a0d609b-72e2-4946-aa4a-0db03c163cba",
                     "expectedControlType": "Button",
@@ -168,7 +168,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ARelease",
+                    "name": "JumpRelease",
                     "type": "Button",
                     "id": "d1bdbec3-72c9-4bc5-b2d4-d0536b3b1279",
                     "expectedControlType": "Button",
@@ -464,7 +464,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "A",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -475,7 +475,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "A",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -684,7 +684,7 @@
                     "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "ARelease",
+                    "action": "JumpRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -695,7 +695,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ARelease",
+                    "action": "JumpRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
