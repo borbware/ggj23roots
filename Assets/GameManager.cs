@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
                 uiManager.SetRareCollectibles(rareCollectibles);
         } else if (collectibleType == CollectibleType.Basic)
         {
-            basicCollectibles++;
+            AddHP(1);
         }
     }
 }
