@@ -15,6 +15,7 @@ public class CharacterController1 : MonoBehaviour
     bool wasgroundedlastframe = false;
     bool checkedforslope = false;
     LayerMask terrain;
+    public float analog = 0;
 
     Vector3 platformpreviouspoint = Vector3.zero;
     Vector3 platformoffset = Vector3.zero;
@@ -140,6 +141,7 @@ public class CharacterController1 : MonoBehaviour
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         MoveDirection = new Vector3(movementVector.x, 0, movementVector.y);
+        analog = movementVector.magnitude;
     }
     public bool ThereIsAPit(Vector3 direct, float length)
     {
