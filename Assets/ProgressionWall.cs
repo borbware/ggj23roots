@@ -7,6 +7,7 @@ public class ProgressionWall : MonoBehaviour
     [SerializeField] int RaresThreshold = 3;
     [SerializeField] float speed = 3f;
     bool blocking = true; 
+    bool playerNear = false; 
     bool movedone = false;
     [SerializeField] GameObject dog;
     [SerializeField] GameObject dogPosition;
@@ -28,7 +29,7 @@ public class ProgressionWall : MonoBehaviour
     {
         if (blocking)
         {
-            if (GameManager.instance != null && GameManager.instance.rareCollectibles >= RaresThreshold)
+            if (playerNear && GameManager.instance != null && GameManager.instance.rareCollectibles >= RaresThreshold)
             {
                 blocking = false;
                 StartCoroutine(MoveDelay());
@@ -41,6 +42,20 @@ public class ProgressionWall : MonoBehaviour
 
         }
     }
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "Player")
+        {
+            playerNear = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.name == "Player")
+        {
+            playerNear = false;
+        }
+    }
+
     IEnumerator MoveDelay()
     {
         yield return new WaitForSeconds(5f);
