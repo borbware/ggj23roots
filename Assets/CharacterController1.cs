@@ -43,6 +43,8 @@ public class CharacterController1 : MonoBehaviour
         if (ground.transform != null)
         {
 
+            transform.rotation = Quaternion.LookRotation(transform.forward - ground.normal * Vector3.Dot(transform.forward, ground.normal), ground.normal); // koira k‰‰ntyy maaston mukaan
+
             platformoffset = ground.transform.position - platformpreviouspoint;
 
             if (platform_name == ground.transform.name && platformpreviouspoint != ground.transform.position)
