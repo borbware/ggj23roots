@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "X",
+                    "name": "Bark",
                     "type": "Button",
                     "id": "fe0b7636-d5bc-44d4-b3b3-d3e998306ba9",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "B",
+                    "name": "Piss",
                     "type": "Button",
                     "id": "7ea60788-e50a-4e01-ba83-a5b0538afd65",
                     "expectedControlType": "Button",
@@ -141,7 +141,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "XRelease",
+                    "name": "BarkRelease",
                     "type": "Button",
                     "id": "595acb26-e088-4206-9f46-04fa58425ec1",
                     "expectedControlType": "Button",
@@ -159,7 +159,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BRelease",
+                    "name": "PissRelease",
                     "type": "Button",
                     "id": "2d154597-2a6b-474e-b403-5e2f23c92b19",
                     "expectedControlType": "Button",
@@ -398,7 +398,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "X",
+                    "action": "Bark",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -409,7 +409,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "X",
+                    "action": "Bark",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -442,7 +442,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "B",
+                    "action": "Piss",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -453,7 +453,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "B",
+                    "action": "Piss",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -618,7 +618,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "XRelease",
+                    "action": "BarkRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -629,7 +629,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "XRelease",
+                    "action": "BarkRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -662,7 +662,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BRelease",
+                    "action": "PissRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -673,7 +673,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BRelease",
+                    "action": "PissRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
