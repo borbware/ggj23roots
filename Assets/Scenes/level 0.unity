@@ -2569,10 +2569,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProgressionWall
       objectReference: {fileID: 0}
-    - target: {fileID: 5710201160856076792, guid: c39b57fe5b4d62e41a6f4fd8d466a627, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5946268497693111074, guid: c39b57fe5b4d62e41a6f4fd8d466a627, type: 3}
       propertyPath: m_Layer
       value: 6
