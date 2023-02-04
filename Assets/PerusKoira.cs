@@ -14,6 +14,8 @@ public class PerusKoira : MonoBehaviour
 
     State state;
     CharacterController1 controller;
+    Animator anim;
+
     public float KoiranNopeus = 4;
     public float jumpPower = 10;
     float jump = 0;
@@ -26,6 +28,7 @@ public class PerusKoira : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController1>();
+        anim = GetComponentInChildren<Animator>();
         state = State.Grounded;
     }
 
@@ -51,6 +54,8 @@ public class PerusKoira : MonoBehaviour
                         Jump();
                     }
 
+                    anim.Play("DogDefault");
+                    anim.SetFloat("Blend", controller.analog);
                 }
                 break;
             case State.InAir:
@@ -69,6 +74,7 @@ public class PerusKoira : MonoBehaviour
                     {
                         controller.Move(Vector3.down, gravity);
                         gravity += Time.deltaTime * gravitymultiplier;
+                        anim.CrossFadeInFixedTime("jump end", 0.25f, -1, 0.0f, 0.0f);
                     }
 
                     if (jump <= 0 && controller.isGrounded())
@@ -98,5 +104,6 @@ public class PerusKoira : MonoBehaviour
         jumpBuffer = 0;
         jump = jumpPower;
         state = State.InAir;
+        anim.CrossFadeInFixedTime("jump start", 0.1f, -1, 0.0f, 0.0f);
     }
 }
