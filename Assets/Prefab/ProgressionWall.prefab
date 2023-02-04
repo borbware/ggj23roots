@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8460153749716245916, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
       propertyPath: m_Name
       value: Dog Head
@@ -200,6 +204,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollX: -0.21
   ScrollY: 0.2
+--- !u!64 &4804964384899965650
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4687416914770026597}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3466695008631486310, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
 --- !u!4 &5481104330213975530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
