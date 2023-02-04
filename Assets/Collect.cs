@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class Collect : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] CollectibleType collectibleType = CollectibleType.Basic;
+    AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "Player")
+        {
+            GameManager.instance.AddCollectible(collectibleType);
+                 
+            if (audioSource.enabled)
+            {
+                audioSource.Play();
+                Debug.Log("asdf");
+            }
+            Destroy(gameObject);
+        }
     }
 }
