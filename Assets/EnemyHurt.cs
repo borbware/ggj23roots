@@ -8,14 +8,18 @@ public class EnemyHurt : MonoBehaviour
     CharacterController1 controller;
     float pushforce = 0;
 
+    Vector3 collisionpoint = Vector3.zero;
+    Vector3 previouspoint = Vector3.zero;
+
     bool moving = false;
     void OnTriggerEnter(Collider other)
     {
 
-
         if (other.gameObject.tag == "Enemy" && moving == false)
         {
-            dir = transform.position - other.transform.position;
+            collisionpoint = transform.position + controller.targetDirection;
+            //dir = transform.position - other.transform.position;
+            dir = previouspoint - collisionpoint;
             moving = true;
             StartCoroutine(BumpDelay());
             
@@ -37,6 +41,10 @@ public class EnemyHurt : MonoBehaviour
                 pushforce -= Time.deltaTime * 10;
             }
         }
+    }
+    void LateUpdate()
+    {
+        previouspoint = transform.position;
     }
  
     IEnumerator BumpDelay()
