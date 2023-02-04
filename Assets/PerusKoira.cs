@@ -95,6 +95,7 @@ public class PerusKoira : MonoBehaviour
     }
     void Jump() // tämä on itse hyppy
     {
+        jumpBuffer = 0;
         jump = jumpPower;
         state = State.InAir;
     }

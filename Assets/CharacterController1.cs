@@ -113,7 +113,7 @@ public class CharacterController1 : MonoBehaviour
     }
     public void CheckForGround()
     {
-        float additional = 0.25f;
+        float additional = 0.1f;
         if (!isGrounded())
             additional = 0;
         if (Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, out ground, height + additional, terrain))
