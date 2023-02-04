@@ -39,6 +39,8 @@ public class PerusKoira : MonoBehaviour
         {
             case State.Grounded:
                 {
+                    anim.Play("DogDefault");
+                    anim.SetFloat("Blend", controller.analog);
                     if (controller.MoveDirection != Vector3.zero)
                     {
                         controller.Move(controller.targetDirection, KoiranNopeus);
@@ -54,8 +56,6 @@ public class PerusKoira : MonoBehaviour
                         Jump();
                     }
 
-                    anim.Play("DogDefault");
-                    anim.SetFloat("Blend", controller.analog);
                 }
                 break;
             case State.InAir:

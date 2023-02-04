@@ -37,8 +37,8 @@ public class CameraOrbit : MonoBehaviour
         }
         else
         {
-            x_ += x * speed * Time.deltaTime / Time.timeScale; ;
-            y_ -= y * speed * Time.deltaTime / Time.timeScale; ;
+            x_ += x * speed * Time.deltaTime / Time.timeScale;
+            y_ -= y * speed * Time.deltaTime / Time.timeScale;
         }
 
         Quaternion rotation = Quaternion.Euler(y_,x_,0);
