@@ -13,14 +13,15 @@ public class ProgressionWall : MonoBehaviour
     [SerializeField] GameObject dogPosition;
     void Start()
     {
-        for (int i = 1; i <= RaresThreshold; i++ )
+        for (int i = 0; i < RaresThreshold; i++ )
         {
+            float delta = 8.0f / RaresThreshold;
             GameObject doge = Instantiate(dog, 
-                dogPosition.transform.position + new Vector3(i * 2.0f, 0f, 0f),
+                dogPosition.transform.position + new Vector3(i * delta - (RaresThreshold - 1) * delta / 2f, 0f, 0f),
                 Quaternion.identity,
                 this.gameObject.transform
             );
-            doge.transform.localScale = new Vector3(30f, 30f, 30f);
+            doge.transform.localScale = new Vector3(10f, 10f, 10f);
             doge.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
         }
