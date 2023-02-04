@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243525662907727587}
-  - component: {fileID: 4446441813660157274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EarPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,20 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4446441813660157274
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8582254967578095820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1001 &1777535595461639783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b62d6115722829d438185211756d42e2, type: 3}
       propertyPath: m_Name
       value: Ear
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b62d6115722829d438185211756d42e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b62d6115722829d438185211756d42e2, type: 3}

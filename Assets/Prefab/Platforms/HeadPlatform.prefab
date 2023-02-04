@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243525662907727587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeadPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8460153749716245916, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7447239833946419102, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7413187125855063773, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6907390871830697581, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6541159251747197782, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3831638902902421063, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1887782792892433468, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
       propertyPath: m_Name
       value: Dog Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612602704059986281, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434311464732297620, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221992017677824088, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb5f35ccdf6f22b419ed99f9872dcc3c, type: 3}
