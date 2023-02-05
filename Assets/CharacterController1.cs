@@ -137,6 +137,10 @@ public class CharacterController1 : MonoBehaviour
 
         Vector3 directionwithouty = targetDirection;
         directionwithouty.y = 0;
+        Vector3 positionwithouty = transform.position;
+        positionwithouty.y = 0;
+
+        RaycastHit spaghetti;
 
         Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty.normalized * 0.1f, directionwithouty.normalized, out slope, 0.2f, terrain);
         if ( Vector3.SignedAngle(slope.normal, directionwithouty.normalized, directionwithouty.normalized) > SlopeLimit)
@@ -144,7 +148,7 @@ public class CharacterController1 : MonoBehaviour
             //Physics.Raycast(transform.position + Vector3.up * height + directionwithouty.normalized * 0.5f, Vector3.down, out slope, height + additional, terrain);
             Vector3 downslope = Vector3.Cross(slope.normal, Vector3.Cross(slope.normal, Vector3.up));
             downslope.y = 0;
-            float dotti = Vector3.Dot(directionwithouty, transform.position + downslope - transform.position);
+            float dotti = Vector3.Dot(directionwithouty, positionwithouty + downslope - positionwithouty);
             if (dotti < 0)
             {
                 Debug.Log(dotti);
