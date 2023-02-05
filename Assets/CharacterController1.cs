@@ -96,7 +96,16 @@ public class CharacterController1 : MonoBehaviour
         Vector3 nextposition = transform.position + direction * speed * Time.deltaTime * 2;
         Vector3 previousposition = transform.position;
 
+        RaycastHit slope;
+        Vector3 directionwithouty = targetDirection;
+        directionwithouty.y = 0;
+        Vector3 positionwithouty = transform.position;
+        positionwithouty.y = 0;
+
+        Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty.normalized * 0.1f, directionwithouty.normalized, out slope, 0.2f, terrain);
+
         RaycastHit wall;
+
         if (Physics.Raycast(previousposition + Vector3.up * height, direction, out wall, 0.5f, LayerMask.GetMask("Terrain")))
         {
             Vector3 slidedirection = (new Vector3(wall.point.x, transform.position.y, wall.point.z) - previousposition).normalized + wall.normal;
@@ -114,6 +123,18 @@ public class CharacterController1 : MonoBehaviour
                 transform.position += slidedirection * speed * Time.deltaTime;
 
         }
+        else if (Vector3.SignedAngle(slope.normal, directionwithouty.normalized, directionwithouty.normalized) > SlopeLimit)
+        {
+            //Physics.Raycast(transform.position + Vector3.up * height + directionwithouty.normalized * 0.5f, Vector3.down, out slope, height + additional, terrain);
+            Vector3 downslope = Vector3.Cross(slope.normal, Vector3.Cross(slope.normal, Vector3.up));
+            downslope.y = 0;
+            float dotti = Vector3.Dot(directionwithouty, positionwithouty + downslope - positionwithouty);
+            if (dotti < 0)
+            {
+                Debug.Log(dotti);
+                transform.position = transform.position + downslope * moveSpeed;
+            }
+        }
         /**
         else if (isGrounded() && ThereIsAPit(nextposition))
         {
@@ -126,7 +147,6 @@ public class CharacterController1 : MonoBehaviour
     public void CheckForGround()
     {
         float additional = 0.1f;
-        RaycastHit slope;
         if (!isGrounded())
             additional = 0;
         if (Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, out ground, height + additional, terrain))
@@ -134,27 +154,6 @@ public class CharacterController1 : MonoBehaviour
             isgrounded = true;
         }
         else isgrounded = false;
-
-        Vector3 directionwithouty = targetDirection;
-        directionwithouty.y = 0;
-        Vector3 positionwithouty = transform.position;
-        positionwithouty.y = 0;
-
-        RaycastHit spaghetti;
-
-        Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty.normalized * 0.1f, directionwithouty.normalized, out slope, 0.2f, terrain);
-        if ( Vector3.SignedAngle(slope.normal, directionwithouty.normalized, directionwithouty.normalized) > SlopeLimit)
-        {
-            //Physics.Raycast(transform.position + Vector3.up * height + directionwithouty.normalized * 0.5f, Vector3.down, out slope, height + additional, terrain);
-            Vector3 downslope = Vector3.Cross(slope.normal, Vector3.Cross(slope.normal, Vector3.up));
-            downslope.y = 0;
-            float dotti = Vector3.Dot(directionwithouty, positionwithouty + downslope - positionwithouty);
-            if (dotti < 0)
-            {
-                Debug.Log(dotti);
-                transform.position = transform.position + downslope * moveSpeed;
-            }
-        }
 
     }
     public bool isGrounded()
