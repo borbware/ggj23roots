@@ -77,7 +77,9 @@ public class PerusKoira : MonoBehaviour
                     }
 
                     if (dashBuffer > 0)
+                    {
                         Dash();
+                    }
                 }
                 break;
             case State.InAir:
@@ -112,7 +114,9 @@ public class PerusKoira : MonoBehaviour
                     }
 
                     if (dashBuffer > 0)
+                    {
                         Dash();
+                    }
 
                 }
                 break;

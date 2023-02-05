@@ -10,6 +10,7 @@ public class CharacterController1 : MonoBehaviour
     public Vector3 MoveDirection;
     public float height = 0.6f;
     public Vector3 currentMoveDirection;
+    float moveSpeed = 0;
     public RaycastHit ground; // for isgrounded
     bool isgrounded = false;
     bool wasgroundedlastframe = false;
@@ -24,12 +25,14 @@ public class CharacterController1 : MonoBehaviour
     string platform_name = "";
     [System.NonSerialized] public Vector3 targetDirection = Vector3.zero;
 
+    Vector3 previousposition;
+
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main.transform;
         terrain = LayerMask.GetMask("Terrain");
-
+        previousposition = transform.position;
     }
 
     // Update is called once per frame
@@ -70,6 +73,8 @@ public class CharacterController1 : MonoBehaviour
     }
     void LateUpdate()
     {
+        moveSpeed = Vector3.Distance(previousposition, transform.position);
+        Debug.Log(moveSpeed);
         if (ground.transform != null)
         {
             platformpreviouspoint = ground.transform.position;
@@ -80,6 +85,7 @@ public class CharacterController1 : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, ground.point.y, transform.position.z);
         }
+        previousposition = transform.position;
     }
     public void Move(Vector3 direction, float speed)
     {
@@ -131,10 +137,12 @@ public class CharacterController1 : MonoBehaviour
         Vector3 directionwithouty = targetDirection;
         directionwithouty.y = 0;
 
-        Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty, directionwithouty * 0.1f, out slope, height + additional, terrain);
-        if (Vector3.Angle(slope.normal, targetDirection) > SlopeLimit)
+        Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty.normalized * 0.1f, directionwithouty.normalized, out slope, 0.2f, terrain);
+        if (Vector3.Angle(slope.normal, directionwithouty.normalized) > SlopeLimit)
         {
-            //transform.position = transform.position - directionwithouty.normalized * 0.1f;
+            Vector3 downslope = Vector3.Cross(slope.normal, Vector3.Cross(slope.normal, Vector3.up));
+            downslope.y = 0;
+            transform.position = transform.position + downslope * moveSpeed;
         }
 
     }

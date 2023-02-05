@@ -1669,7 +1669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406543056853492273, guid: c13312fa9fbc7b942bd333c016c34133, type: 3}
       propertyPath: SlopeLimit
-      value: 25
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1406543056853492274, guid: c13312fa9fbc7b942bd333c016c34133, type: 3}
       propertyPath: m_RootOrder
