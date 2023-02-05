@@ -20,6 +20,8 @@ public class EnemyHurt : MonoBehaviour
             collisionpoint = transform.position + controller.targetDirection;
             //dir = transform.position - other.transform.position;
             dir = previouspoint - collisionpoint;
+            dir.y = 0.8f;
+
             moving = true;
             StartCoroutine(BumpDelay());
             

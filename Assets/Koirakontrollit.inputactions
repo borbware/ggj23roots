@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R1",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "50382614-39fe-4e15-9538-54c0a99f18d6",
                     "expectedControlType": "Button",
@@ -177,7 +177,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "R1Release",
+                    "name": "DashRelease",
                     "type": "Button",
                     "id": "468c70b0-ac70-451a-87e8-a6d77d57cadf",
                     "expectedControlType": "Button",
@@ -508,18 +508,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R1",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "657f1c68-9e38-4128-b47a-c00c67151ec3",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R1",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -717,7 +717,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R1Release",
+                    "action": "DashRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -728,7 +728,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "R1Release",
+                    "action": "DashRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -17,6 +17,8 @@ public class CharacterController1 : MonoBehaviour
     LayerMask terrain;
     public float analog = 0;
 
+    public float SlopeLimit = 90;
+
     Vector3 platformpreviouspoint = Vector3.zero;
     Vector3 platformoffset = Vector3.zero;
     string platform_name = "";
@@ -88,11 +90,11 @@ public class CharacterController1 : MonoBehaviour
         Vector3 previousposition = transform.position;
 
         RaycastHit wall;
-        if (Physics.Raycast(previousposition + Vector3.up, direction, out wall, 0.5f, LayerMask.GetMask("Terrain")))
+        if (Physics.Raycast(previousposition + Vector3.up * height, direction, out wall, 0.5f, LayerMask.GetMask("Terrain")))
         {
             Vector3 slidedirection = (new Vector3(wall.point.x, transform.position.y, wall.point.z) - previousposition).normalized + wall.normal;
 
-            if (!Physics.Raycast(transform.position + Vector3.up, slidedirection, out wall, 0.5f, LayerMask.GetMask("Terrain")))
+            if (!Physics.Raycast(transform.position + Vector3.up * height, slidedirection, out wall, 0.5f, LayerMask.GetMask("Terrain")))
                 transform.position += slidedirection * speed * Time.deltaTime;
 
         }
@@ -101,7 +103,7 @@ public class CharacterController1 : MonoBehaviour
             
             Vector3 slidedirection = (new Vector3(wall.point.x, transform.position.y, wall.point.z) - previousposition).normalized + wall.normal;
 
-            if (!Physics.Raycast(transform.position + Vector3.up, slidedirection, out wall, 0.5f, LayerMask.GetMask("Terrain")))
+            if (!Physics.Raycast(transform.position + Vector3.up * height, slidedirection, out wall, 0.5f, LayerMask.GetMask("Terrain")))
                 transform.position += slidedirection * speed * Time.deltaTime;
 
         }
@@ -117,14 +119,24 @@ public class CharacterController1 : MonoBehaviour
     public void CheckForGround()
     {
         float additional = 0.1f;
+        RaycastHit slope;
         if (!isGrounded())
             additional = 0;
         if (Physics.Raycast(transform.position + Vector3.up * height, Vector3.down, out ground, height + additional, terrain))
-        //if (Physics.SphereCast(transform.position + Vector3.up * height * 0.5f, 0.25f , Vector3.down, out ground, height * 0.6f, terrain))
         {
             isgrounded = true;
         }
         else isgrounded = false;
+
+        Vector3 directionwithouty = targetDirection;
+        directionwithouty.y = 0;
+
+        Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty, directionwithouty * 0.1f, out slope, height + additional, terrain);
+        if (Vector3.Angle(slope.normal, targetDirection) > SlopeLimit)
+        {
+            //transform.position = transform.position - directionwithouty.normalized * 0.1f;
+        }
+
     }
     public bool isGrounded()
     {

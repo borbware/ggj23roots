@@ -7,7 +7,8 @@ public enum State
 {
     Grounded,
     InAir,
-    Peeing
+    Peeing,
+    Dashing
 }
 
 public class PerusKoira : MonoBehaviour
@@ -26,8 +27,13 @@ public class PerusKoira : MonoBehaviour
     float gravitymultiplier = 4;
 
     float jumpBuffer = 0.0f;
+    float dashBuffer = 0.0f;
+
     float peeFrames = 0f;
     int AirJumpCounter = 0;
+    int AirDashCounter = 0;
+    float DashCoolDown = 0;
+    float DashFrames = 0;
     int AirPissCounter = 0;
     // Start is called before the first frame update
     void Start()
@@ -67,7 +73,11 @@ public class PerusKoira : MonoBehaviour
                     {
                         AirJumpCounter = 1;
                         AirPissCounter = 1;
+                        AirDashCounter = 2;
                     }
+
+                    if (dashBuffer > 0)
+                        Dash();
                 }
                 break;
             case State.InAir:
@@ -101,6 +111,9 @@ public class PerusKoira : MonoBehaviour
                         AirJumpCounter--;
                     }
 
+                    if (dashBuffer > 0)
+                        Dash();
+
                 }
                 break;
             case State.Peeing:
@@ -119,10 +132,39 @@ public class PerusKoira : MonoBehaviour
                     AirPissCounter--;
                 }
                 break;
+            case State.Dashing:
+
+                dashBuffer = 0;
+                controller.Move(transform.forward, 20 );
+                gravity = 0;
+                transform.rotation = Quaternion.LookRotation(controller.targetDirection);
+                DashFrames += Time.deltaTime;
+                if (DashFrames > 0.15)
+                {
+                    if (controller.isGrounded())
+                    {
+                        state = State.Grounded;
+                    }
+                    else
+                        state = State.InAir;
+
+                    DashFrames = 0;
+                    if (DashCoolDown <= 0)
+                        DashCoolDown = 0.1f;
+                    else DashCoolDown = 1.2f;
+                }
+
+
+                break;
         }
 
         if (jumpBuffer > 0 )
             jumpBuffer -= Time.deltaTime;
+        if (dashBuffer > 0 )
+            dashBuffer -= Time.deltaTime;
+
+        if (state != State.Dashing)
+            DashCoolDown -= Time.deltaTime;
     }
     void OnJump() // tämä on hyppyinputti
     {
@@ -138,6 +180,7 @@ public class PerusKoira : MonoBehaviour
         jump = jumpPower;
         state = State.InAir;
         anim.CrossFadeInFixedTime("jump start", 0.1f, -1, 0.0f, 0.0f);
+        gravity = 0;
     }
     void OnBark() // tämä on haukkuinputti
     {
@@ -159,5 +202,15 @@ public class PerusKoira : MonoBehaviour
             anim.Play("pee");
             state = State.Peeing;
         }
+    }
+    void OnDash()
+    {
+        if (AirDashCounter > 0 && DashCoolDown <= 0)
+            dashBuffer = 0.2f;
+    }
+    void Dash()
+    {
+        AirDashCounter--;
+        state = State.Dashing;
     }
 }
