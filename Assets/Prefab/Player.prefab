@@ -120,6 +120,7 @@ MonoBehaviour:
   height: 0.6
   currentMoveDirection: {x: 0, y: 0, z: 0}
   analog: 0
+  SlopeLimit: 90
 --- !u!114 &1406543056853492272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousespeed: 0.1
-  gamepadspeed: 40
+  gamepadspeed: 120
+  cameraDistance: 5
 --- !u!82 &-9218857089388852363
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488528026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c1ef2d77d79da4eacf1d01372afae5, type: 3}
   m_Name: 
@@ -1130,6 +1130,14 @@ PrefabInstance:
     - target: {fileID: 2737157765479779038, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
       propertyPath: nextLevel
       value: level 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194977604665703824, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
+      propertyPath: ScrollX
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194977604665703824, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
+      propertyPath: ScrollY
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 4243525662907727587, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
       propertyPath: m_RootOrder
@@ -1883,7 +1891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4921200427148731995, guid: 9d171767553485d4e8b5a1205c3d125b, type: 3}
       propertyPath: rotateSpeed
-      value: 15
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7344081096173794823, guid: 9d171767553485d4e8b5a1205c3d125b, type: 3}
       propertyPath: m_RootOrder
