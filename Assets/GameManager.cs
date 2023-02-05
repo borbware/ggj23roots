@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("TitleScreen");
             }
         }
+        if (SceneManager.GetActiveScene().name == "YouWin" && Input.anyKey)
+        {
+            Application.Quit();
+        }
     }
     
 
