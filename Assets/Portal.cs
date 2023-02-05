@@ -7,6 +7,10 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "Player")
         {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.ResetCollectibles();
+            }
             SceneManager.LoadScene(nextLevel);
         }
     }

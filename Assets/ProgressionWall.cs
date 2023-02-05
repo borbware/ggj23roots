@@ -22,7 +22,7 @@ public class ProgressionWall : MonoBehaviour
                 this.gameObject.transform
             );
             doge.transform.localScale = new Vector3(10f, 10f, 10f);
-            doge.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            // doge.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
         }
     }

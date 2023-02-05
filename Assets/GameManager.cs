@@ -18,6 +18,19 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            if (SceneManager.GetActiveScene().name == "TitleScreen")
+            {
+                Application.Quit();
+            } else {
+                SceneManager.LoadScene("TitleScreen");
+            }
+        }
+    }
+    
 
     public void AddHP(int HPdifference)
     {
@@ -42,5 +55,11 @@ public class GameManager : MonoBehaviour
         {
             AddHP(1);
         }
+    }
+    public void ResetCollectibles()
+    {
+        rareCollectibles = 0;
+        if (uiManager != null)
+            uiManager.SetRareCollectibles(rareCollectibles);
     }
 }
