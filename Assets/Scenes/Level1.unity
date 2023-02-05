@@ -1005,10 +1005,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8460153749716245916, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -5625216883381727347, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b7ac88b0257e03f4f8b941700643eb98, type: 2}
+    - target: {fileID: -142910761058938795, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 30619154326773777, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0025cc2b32ed6b84ca6963fd74ce0ec1, type: 2}
     - target: {fileID: 919132149155446097, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
       propertyPath: m_Name
       value: Dog_Head_mouth_open
@@ -1038,6 +1050,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollX: 0.1
   ScrollY: 0.1
+--- !u!64 &488528031
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488528026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3466695008631486310, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
 --- !u!4 &498192304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7344081096173794823, guid: 9d171767553485d4e8b5a1205c3d125b, type: 3}
@@ -1578,6 +1604,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7344081096173794823, guid: 9d171767553485d4e8b5a1205c3d125b, type: 3}
   m_PrefabInstance: {fileID: 690103161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017371970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -142910761058938795, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
+  m_PrefabInstance: {fileID: 488528025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1017371974
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017371970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 909356288856228484, guid: 66e968e82dd79844aaa7e5b69a6a0941, type: 3}
 --- !u!1 &1035443822
 GameObject:
   m_ObjectHideFlags: 0
