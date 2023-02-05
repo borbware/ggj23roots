@@ -138,8 +138,9 @@ public class CharacterController1 : MonoBehaviour
         directionwithouty.y = 0;
 
         Physics.Raycast(transform.position + Vector3.up * 0.1f - directionwithouty.normalized * 0.1f, directionwithouty.normalized, out slope, 0.2f, terrain);
-        if (Vector3.Angle(slope.normal, directionwithouty.normalized) > SlopeLimit)
+        if ( Vector3.Angle(slope.normal, directionwithouty.normalized) > SlopeLimit)
         {
+            //Physics.Raycast(transform.position + Vector3.up * height + directionwithouty.normalized * 0.5f, Vector3.down, out slope, height + additional, terrain);
             Vector3 downslope = Vector3.Cross(slope.normal, Vector3.Cross(slope.normal, Vector3.up));
             downslope.y = 0;
             transform.position = transform.position + downslope * moveSpeed;
