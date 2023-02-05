@@ -1027,7 +1027,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2737157765479779038, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
       propertyPath: nextLevel
-      value: level 0
+      value: YouWin
       objectReference: {fileID: 0}
     - target: {fileID: 3194977604665703824, guid: 1978f2d0972881144b5a5b9f5d4d6499, type: 3}
       propertyPath: ScrollX
@@ -3914,6 +3914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5567467155868596578, guid: ebdd2c1662ed05f48adf725f42292b26, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b13456ca6996fb4b88e85cc0c84d1e8, type: 3}
     - target: {fileID: 5567467155868596579, guid: ebdd2c1662ed05f48adf725f42292b26, type: 3}
       propertyPath: m_RootOrder
       value: 17
