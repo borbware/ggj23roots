@@ -8,11 +8,16 @@ public class GameManager : MonoBehaviour
         Rare
     }
 
+    public bool timerStarted = false;
+    public float timer = 0f;
+
     public static GameManager instance;
     public UIManager uiManager;
     public int rareCollectibles = 0;
     public int basicCollectibles = 0;
     public int hp = 4;
+
+    private float youwintime = 0;
     void Start()
     {
         instance = this;
@@ -29,9 +34,18 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("TitleScreen");
             }
         }
-        if (SceneManager.GetActiveScene().name == "YouWin" && Input.anyKey)
+        if (SceneManager.GetActiveScene().name == "YouWin")
         {
-            Application.Quit();
+            timerStarted = false;
+            youwintime += Time.deltaTime;
+            if (youwintime > 2f && Input.anyKey)
+            {
+                SceneManager.LoadScene("TitleScreen");
+            }
+        }
+        if (timerStarted)
+        {
+            timer += Time.deltaTime;
         }
     }
     

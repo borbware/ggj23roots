@@ -10,6 +10,7 @@ public class TitleScreen : MonoBehaviour
     {
         if (Input.anyKey) {
             SceneManager.LoadScene(firstLevel);
+            GameManager.instance.timerStarted = true;
         }
     }
 }
